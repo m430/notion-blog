@@ -1,6 +1,6 @@
 import TagNav from ""
 import { getAllPosts, getAllTagsFromPosts } from "@/api/notion"
-import Card from '@/components/card/Card'
+import Card from '@/components/card'
 import Pagination from '@/components/pagination'
 import PostList from '@/components/post/PostList'
 import siteMetadata from '@/data/siteMetadata'
