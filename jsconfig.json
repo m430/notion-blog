@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "ESNext",
+    "jsx": "react",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./*"
+      ],
+      "@/components/*": [
+        "components/*"
+      ],
+      "@/data/*": [
+        "data/*"
+      ],
+      "@/layouts/*": [
+        "layouts/*"
+      ],
+      "@/css/*": [
+        "css/*"
+      ],
+      "contentlayer/generated": [
+        "./.contentlayer/generated"
+      ]
+    },
+    "include": [
+      "next-env.d.ts",
+      "**/*.js",
+      "**/*.mjs",
+      "**/*.ts",
+      "**/*.jsx",
+      "**/*.tsx",
+      "**/*.json",
+      ".contentlayer/generated",
+      ".contentlayer/generated/**/*.json",
+      ".next/types/**/*.ts",
+      "node_modules/**/*"
+    ]
+  }
+}

@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.task-list-item::before {
+  @apply hidden;
+}
+
+.task-list-item {
+  @apply list-none;
+}
+
+.footnotes {
+  @apply mt-12 border-t border-gray-200 pt-8 dark:border-gray-700;
+}
+
+.data-footnote-backref {
+  @apply no-underline;
+}
+
+.csl-entry {
+  @apply my-5;
+}
+
+/* https://stackoverflow.com/questions/61083813/how-to-avoid-internal-autofill-selected-style-to-be-applied */
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition:
+    background-color 600000s 0s,
+    color 600000s 0s;
+}
+
+.katex-display {
+  overflow: auto hidden;
+}
+
+.sticky-nav {
+  position: sticky;
+  z-index: 10;
+  top: -1px;
+  backdrop-filter: blur(5px);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0, 1);
+  border-bottom-color: transparent;
+}
+
+.remove-sticky {
+  position: unset;
+}
+
+.sticky-nav-full {
+  @apply border-b border-opacity-50 border-gray-200 dark:border-gray-600 dark:border-opacity-50 cursor-pointer;
+}
+
+.sticky-nav:not(.sticky-nav-full) .caret {
+  opacity: 0 !important;
+}
+
+.header-name {
+  display: none;
+  overflow: hidden;
+}
+
+.sticky-nav-full .nav {
+  @apply text-gray-600 dark:text-gray-300;
+}
+
+@media (min-width: 768px) {
+  .sticky-nav-full {
+    @apply max-w-full border-b border-opacity-50 border-gray-200 dark:border-gray-600 dark:border-opacity-50;
+  }
+
+  .header-name {
+    display: grid;
+  }
+
+  .site-title,
+  .post-title {
+    @apply transition duration-500;
+  }
+
+  .site-description {
+    opacity: 0;
+    transition: opacity 0.5s cubic-bezier(0.4, 0, 0, 1);
+  }
+
+  .sticky-nav-full .site-description {
+    @apply opacity-100 transition duration-500;
+  }
+
+  .post-title {
+    @apply opacity-0;
+  }
+
+  .post-title~span .site-description {
+    @apply hidden;
+  }
+
+  .sticky-nav-full .post-title {
+    @apply opacity-100;
+  }
+
+  .sticky-nav-full .post-title~span .site-title {
+    @apply opacity-0;
+  }
+}
+
+@supports not (backdrop-filter: none) {
+  .sticky-nav {
+    backdrop-filter: none;
+    @apply bg-white bg-opacity-90 dark:bg-gray-900 dark:bg-opacity-90;
+  }
+}
