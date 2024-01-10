@@ -1,7 +1,7 @@
 'use client'
 
 import siteMetadata from '@/data/siteMetadata'
-import { useCallback, useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import Link from '../Link'
 import Logo from '../logo'
 import NavBar from '../navbar'
@@ -12,13 +12,13 @@ const Header = () => {
   const navRef = useRef();
   const sentinelRef = useRef();
 
-  const handler = useCallback(([entry]) => {
+  const handler = ([entry]) => {
     if (navRef.current) {
       navRef.current?.classList.toggle("sticky-nav-full", !entry.isIntersecting);
     } else {
       navRef.current?.classList.add("remove-sticky");
     }
-  })
+  };
 
   useEffect(() => {
     const sentinelEl = sentinelRef.current;
