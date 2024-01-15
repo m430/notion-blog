@@ -9,8 +9,6 @@ export default function PostDetail(props) {
   const { blockMap } = props
   const { theme } = useTheme()
 
-  console.log("theme-->", theme);
-
   return (
     <div className="self-stretch -mt-4 flex flex-col items-center lg:flex-row lg:items-stretch">
       <div className="flex-1 hidden lg:block" />

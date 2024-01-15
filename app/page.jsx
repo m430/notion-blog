@@ -3,7 +3,7 @@ import Pagination from '@/components/pagination'
 import PostList from '@/components/post/PostList'
 import siteMetadata from '@/data/siteMetadata'
 
-export const revalidate = 10;
+export const revalidate = 0;
 
 export default async function Page() {
   const posts = await getAllPosts({ includePages: false })
