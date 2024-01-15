@@ -36,7 +36,7 @@ const Header = () => {
       <header
         id='sticky-nav'
         ref={navRef}
-        className="sticky-nav group m-auto w-full h-6 flex flex-row justify-between items-center mb-2 md:mb-12 py-8 bg-opacity-60 max-w-3xl px-4"
+        className="sticky-nav group mx-auto w-full h-6 flex flex-row justify-between items-center mb-2 md:mb-12 py-8 bg-opacity-60 max-w-3xl px-4"
       >
         <Link href="/" aria-label={siteMetadata.title}>
           <div className="flex items-center">

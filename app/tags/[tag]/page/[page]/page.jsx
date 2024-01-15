@@ -4,6 +4,8 @@ import { slug } from "github-slugger"
 import siteMetadata from '@/data/siteMetadata'
 import TagLayout from '@/layouts/TagLayout'
 
+export const revalidate = 10;
+
 export const metadata = genPageMetadata({
   title: 'Blog'
 })

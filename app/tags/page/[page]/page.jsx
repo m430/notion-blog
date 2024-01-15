@@ -3,6 +3,8 @@ import { getAllPosts } from '@/api/notion'
 import TagLayout from '@/layouts/TagLayout'
 import siteMetadata from '@/data/siteMetadata'
 
+export const revalidate = 10;
+
 export const metadata = genPageMetadata({
   title: 'Tags'
 })

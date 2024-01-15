@@ -11,11 +11,12 @@ export default async function TagLayout({
   page = 1,
 }) {
 
+  const decodeTag = decodeURI(tag)
   const pageIndex = parseInt(page)
   const posts = await getAllPosts({ includePages: false });
   const total = posts.length
   const tags = getAllTagsFromPosts(posts);
-  const tagPosts = filterByTag({ posts, tag });
+  const tagPosts = filterByTag({ posts, tag: decodeTag });
   const tagTotal = tagPosts.length;
   const displayPosts = tagPosts.slice(
     siteMetadata.pageSize * (pageIndex - 1),
@@ -27,13 +28,17 @@ export default async function TagLayout({
   }
 
   return (
-    <div className="flex gap-10">
-      <div className='pt-6'>
-        <Card>
-          <TagNav tags={tags} activeTag={tag} total={total} />
-        </Card>
+    <main className="self-stretch flex flex-col items-center lg:flex-row lg:items-stretch">
+      <div className="relative lg:order-[unset] w-full lg:w-auto max-w-2xl lg:max-w-[unset] lg:min-w-[160px] flex-1">
+        <div className="sticky top-[120px] flex justify-end">
+          <div className="w-[180px] mr-6">
+            <Card>
+              <TagNav tags={tags} activeTag={decodeTag} total={total} />
+            </Card>
+          </div>
+        </div>
       </div>
-      <div className="flex-1">
+      <div className="flex-none w-full max-w-2xl px-4">
         <PostList posts={displayPosts} />
         {pagination && pagination.totalPages > 1 && (
           <Pagination
@@ -43,6 +48,7 @@ export default async function TagLayout({
           />
         )}
       </div>
-    </div>
+      <div className="flex-1 hidden lg:block"></div>
+    </main>
   )
 }
